@@ -46,13 +46,12 @@ class TestRoom(unittest.TestCase):
         self.assertEqual("Wannabe", self.song1.title)
         
     def test_check_room_capacity__not_full(self):
-        # breakpoint()
-        self.room2.check_in(self.guest1)
         # self.room2.check_in(self.guest1)
-        # self.room2.check_in(self.guest1)
-        # self.room2.check_in(self.guest1)
+    #     # self.room2.check_in(self.guest1)
+    #     # self.room2.check_in(self.guest1)
+    #     # self.room2.check_in(self.guest1)
 
-        self.assertEqual(1, self.room2.check_room_capacity())
+        self.assertEqual(1, self.room2.check_room_capacity(self.guest1))
         
         
         

@@ -21,16 +21,22 @@ class Room:
         self.playlist.append(song)
         
     def check_room_capacity(self, guest):
-        # if the len of number of guests less than the max cpaity interger, then the room is not full
+        if len(self.number_of_guests) < self.max_capacity:
+            self.check_in(guest)
+            return self.guest_count()
+    
+    
+        # else:
+        #     return f"Sorry, the {self.room_name} is full"
+        
+              
+        
+        # if the len of number of guests less than max cpaity interger, then the room is not full
         # add guest
         # else
         # return a string - sorry room is full
+        # breakpoint()
         
-        if len(self.number_of_guests) < self.max_capacity:
-            self.check_in(guest)
-        return self.guest_count
-        # else:
-        #     return f"Sorry, the {self.room_name} is full"
         
         
         
