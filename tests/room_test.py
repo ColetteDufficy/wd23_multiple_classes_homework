@@ -11,8 +11,8 @@ class TestRoom(unittest.TestCase):
         self.guest3 = Guest("Becky", 20, "Let it Go")
         self.guest4 = Guest("Erica", 5, "Maneater")
         
-        self.room1 = Room("Blue Room", 7, 100)
-        self.room2 = Room("Green Room", 3, 50)
+        self.room1 = Room("Blue Room", 7, 100, 12.99)
+        self.room2 = Room("Green Room", 3, 50, 12.99)
         
         self.song1 = Song("Spice Girls", "Wannabe")
         self.song2 = Song("Mr Brightside", "The Killers")
@@ -28,6 +28,9 @@ class TestRoom(unittest.TestCase):
         
     def test_number_of_guests_in_empty_room(self):
         self.assertEqual(0, self.room1.head_count())
+        
+    def test_entry_fee(self):
+        self.assertEqual(12.99, self.room1.entry_fee)
         
     def test_check_in_guest(self):
         self.room1.check_in(self.guest1)
@@ -66,6 +69,9 @@ class TestRoom(unittest.TestCase):
         self.room2.room_has_capacity(self)
         self.assertEqual(f"Sorry, the {self.room2.room_name} is full", self.room2.room_has_capacity(self))
         self.assertEqual(3, self.room2.head_count())
+        
+    def test_charging_entry_fee(self):
+        self.assertEqual(112.99, self.room1.charge_entry_fee(self.guest1))
 
         
         
