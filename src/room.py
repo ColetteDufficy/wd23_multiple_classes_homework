@@ -7,7 +7,6 @@ class Room:
         self.list_of_guests = []
         self.playlist = []
         
-        
     
     def head_count(self):
         return len(self.list_of_guests)
@@ -26,16 +25,9 @@ class Room:
     def room_has_capacity(self, guest):
         if len(self.list_of_guests) < self.max_capacity:
             self.list_of_guests.append(guest)
-            return "come on in"
+            return f"Welcome to {self.room_name}!"
         else:
             return f"Sorry, the {self.room_name} is full"
-    
-    
-        # else:
-        #     return f"Sorry, the {self.room_name} is full"
-        
-            #     else:
-            # return "oops"
         
               
      

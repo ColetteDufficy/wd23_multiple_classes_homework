@@ -45,24 +45,19 @@ class TestRoom(unittest.TestCase):
         self.room1.add_song_to_playlist(self.song1)
         self.assertEqual("Wannabe", self.song1.title)
         
-    # room2 starts with noone in the room, with a MAX capacity of 3 people.... 
     def test_room_has_capacity1__there_is_room(self):
-        #this room_has_capacity function checks if there is space and adds 1 person if there is.. else says oops
-        self.assertEqual("come on in", self.room2.room_has_capacity(self))
-        #You can test multiple assertEquals to help testing phase, understand what multiple variables are doing
-        #after you run the room_has_capacity in this scenario 1 PERSON SHOULDDDD be added to this room meaning when you do head count it should return 1...
+        self.assertEqual(f"Welcome to {self.room2.room_name}!", self.room2.room_has_capacity(self))
         self.assertEqual(1, self.room2.head_count())
         
     def test_room_has_capacity2__there_is_room(self):
-        #add 2 people to the room if there is capacity which there should be...
         self.room2.room_has_capacity(self)
-        self.assertEqual("come on in", self.room2.room_has_capacity(self))
+        self.assertEqual(f"Welcome to {self.room2.room_name}!", self.room2.room_has_capacity(self))
         self.assertEqual(2, self.room2.head_count())
 
     def test_room_has_capacity3__there_is_room(self):
         self.room2.room_has_capacity(self)
         self.room2.room_has_capacity(self)
-        self.assertEqual("come on in", self.room2.room_has_capacity(self))
+        self.assertEqual(f"Welcome to {self.room2.room_name}!", self.room2.room_has_capacity(self))
         self.assertEqual(3, self.room2.head_count())
         
     def test_room_has_capacity4__there_is_no_room(self):
