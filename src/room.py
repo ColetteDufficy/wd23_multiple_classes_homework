@@ -19,9 +19,6 @@ class Room:
     def check_out(self, guest):
         self.list_of_guests.remove(guest)
         self.max_capacity += 1
-
-    def add_song_to_playlist(self, song):
-        self.playlist.append(song)
         
     def room_has_capacity(self, guest):
         if len(self.list_of_guests) < self.max_capacity:
@@ -29,12 +26,24 @@ class Room:
             return f"Welcome to {self.room_name}!"
         else:
             return f"Sorry, the {self.room_name} is full"
+
+    def add_song_to_playlist(self, song):
+        self.playlist.append(song)
+        
         
     def charge_entry_fee(self, guest):
         if guest.sufficient_funds(self):
             guest.wallet -= self.entry_fee
             self.till += self.entry_fee
             return self.till
+        
+        
+    def favourite_song_on_playlist(self, song, guest):
+        for song in self.playlist:
+            if guest.fav_song == song.title:
+                return "Whoo hoo!"
+        else:
+            return "Sorry, not on our playlist"
               
      
         

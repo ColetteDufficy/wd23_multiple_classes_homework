@@ -13,6 +13,9 @@ class TestGuest(unittest.TestCase):
         
         self.room1 = Room("Blue Room", 7, 100, 12.99)
         
+        self.song1 = Song("Spice Girls", "Wannabe")
+        self.song2 = Song("Mr Brightside", "The Killers")
+        
     
     def test_guest_has_name(self):
         self.assertEqual("Becky", self.guest3.name)
@@ -36,3 +39,4 @@ class TestGuest(unittest.TestCase):
         self.assertEqual("Sorry, you dont have enough money", self.guest4.pay_entry_fee(self.room1))
         
 
+        

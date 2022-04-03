@@ -15,3 +15,5 @@ class Guest:
         else:
             return "Sorry, you dont have enough money"
         
+
+        

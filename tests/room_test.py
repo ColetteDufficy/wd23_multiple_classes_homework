@@ -72,6 +72,15 @@ class TestRoom(unittest.TestCase):
         
     def test_charging_entry_fee(self):
         self.assertEqual(112.99, self.room1.charge_entry_fee(self.guest1))
+        
+        
+    def test_guest_favourite_song__yes_on_playlist(self):
+        self.room1.add_song_to_playlist(self.song1)
+        self.assertEqual("Whoo hoo!", self.room1.favourite_song_on_playlist(self.guest1.fav_song, self.guest1))
+    
+    def test_guest_favourite_song__not_on_playlist(self):
+        self.room1.add_song_to_playlist(self.song1)
+        self.assertEqual("Sorry, not on our playlist", self.room1.favourite_song_on_playlist(self.guest2.fav_song, self.guest2))
 
         
         
